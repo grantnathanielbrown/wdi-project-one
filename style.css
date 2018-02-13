@@ -1,0 +1,49 @@
+/*
+center header
+float instructions left
+float hidden word and letter buttons right, buttons below
+
+*/
+
+
+
+
+
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 32px;
+    letter-spacing: 0.1em;
+}
+header {
+    font-size: 3em;
+    text-align: center;
+}
+main {
+    width: 50%;
+    display: flex;
+}
+main p {
+    float: left;
+}
+footer {
+
+}
+.alphabet-container {
+
+}
+.hidden-word {
+    text-decoration: dashed underline;
+}
+.gameoption {
+
+}
+
+
+
+
+/* .square {
+    height: 50px;
+    width: 50px;
+    background-color: red;
+} */
