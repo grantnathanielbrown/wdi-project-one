@@ -21,9 +21,6 @@ header h1 {
     width: 40%;
     margin: 50px;
 }
-.left-container p{
-    
-}
 .alphabet-container {
     width: 40%;
     margin: 50px;
@@ -36,9 +33,6 @@ header h1 {
 .letters {
     display: flex;
     flex-flow: row wrap;
-}
-.letters p {
-    color: white;
 }
 .letters span button {
     padding: 20px 25px;
@@ -53,7 +47,8 @@ button {
     outline: none;
 }
 .invisible {
-    display: none; 
+    visibility: hidden;
+    left: -9999px;
 }
 .letters-guessed-array {
     margin: 40px;

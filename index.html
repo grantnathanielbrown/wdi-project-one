@@ -1,35 +1,3 @@
-<!--
-Visuals on the site
-1. "Hangman" title
-2. copyright by grant
-3. Instructions
-4. background image
-
-
-Game itself
-1. list of clickable letters, which are equivalent to guessing a letter
-2. the hangman answer, depicted as a bunch of _ _ _ _ _ _
-3. letter spaces get filled in when you click a correct letter.
-4. whenever you click an incorrect letter, 
-5. visual depiction of remaining guesses
-6. word is created by user 1
-
-
-
-
-
-
-bronze: sophisticated animations
-sounds on correct guess / incorrect guess / win / lose
-timer
-scoring system
-categories
-silver: mode where you can play without input from user 1, get a huge pool of randomized words
-definition of word gets shown at the end, or as a clickable link
-gold: time challenge between two players
-
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,13 +21,13 @@ gold: time challenge between two players
         <p>The objective of Hangman is to guess the hidden word, one letter at a time.
             <br>
             <br>
-            The first user chooses the hidden word. The second user attempts to guess the hidden word.
+        The first user chooses the hidden word. The second user attempts to guess the hidden word.
             <br>
             <br>
-            Every time you click on a letter in the alphabet below, the word is scanned to see if it contains the chosen letter.
+        Every time you click on a letter in the alphabet below, the word is scanned to see if it contains the chosen letter.
             <br>
             <br>
-            If it does, each instance of the letter is revealed. If not, the user loses a life point.
+        If it does, each instance of the letter is revealed. If not, the user loses a life point.
         </p>
 
     </div>
@@ -94,7 +62,9 @@ gold: time challenge between two players
             <button class="gameoptionY" type="button">Y</button>
             <button class="gameoptionZ" type="button">Z</button>
         </div>
+        
         <div class="letters-guessed-array"></div>
+        <div class="lives-left"></div>
     </div>
 </div>
     <footer>Copyright 2018 by Grant Brown</footer>
