@@ -48,10 +48,17 @@ gold: time challenge between two players
         <input type="text">
         <button type="button">Submit Word</button> -->
     </header>
-    <div class="left-container"></div>
+<div class="flex-container">
+    <div class="left-container">
         <p>The objective of Hangman is to guess the hidden word, one letter at a time.
+            <br>
+            <br>
             The first user chooses the hidden word. The second user attempts to guess the hidden word.
+            <br>
+            <br>
             Every time you click on a letter in the alphabet below, the word is scanned to see if it contains the chosen letter.
+            <br>
+            <br>
             If it does, each instance of the letter is revealed. If not, the user loses a life point.
         </p>
 
@@ -68,7 +75,7 @@ gold: time challenge between two players
             <button class="gameoptionF" type="button">F</button>
             <button class="gameoptionG" type="button">G</button>
             <button class="gameoptionH" type="button">H</button>
-            <button class="gameoptionI" type="button">I</button>
+            <span><button class="gameoptionI" type="button">I</button></span>
             <button class="gameoptionJ" type="button">J</button>
             <button class="gameoptionK" type="button">K</button>
             <button class="gameoptionL" type="button">L</button>
@@ -87,7 +94,9 @@ gold: time challenge between two players
             <button class="gameoptionY" type="button">Y</button>
             <button class="gameoptionZ" type="button">Z</button>
         </div>
+        <div class="letters-guessed-array"></div>
     </div>
+</div>
     <footer>Copyright 2018 by Grant Brown</footer>
     <script src="script.js"></script>
 </body>

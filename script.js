@@ -16,70 +16,84 @@ Else
     If mistake counter = 5, go to loss screen
 */
 
+/* TODO list
+
+
+2. add life total based on # of letters in the word
+3. style buttons red after click
+4. 
+*/
+
+
+
+
+
+
+
+
 // var array = ['a', '_', 'c'];
 // array[1] = 'b';
 // console.log(JSON.stringify(array));
 
 // user 1 prompt
-var wordSelector = prompt('Please enter your word.');
-
-// TODO display letters guessed in a display section that is populated
-// TODO every time the javascript function to guess is called.
-// TODO if a match exists, fill in a letter and update accordingly.
-
+var wordSelectorBefore = prompt('Please enter your word.');
+// makes user prompt uppercase
+var wordSelector = wordSelectorBefore.toUpperCase();
+console.log(wordSelector);
 // TODO extra credit: say if the letter is already guessed
 
 
 // this turns user 1 string into values of hidden array
 var hiddenWordArray = wordSelector.split("");
+console.log(hiddenWordArray);
+var underscoreArray = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",];
+console.log(underscoreArray);
+underscoreArray.fill("_", 0, hiddenWordArray.length)
+console.log(underscoreArray);
 
-// use .map with    
-// create array with underscores _ equal to length of word passed in by user
-var underscoreArray = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",];
-underscoreArray.fill("_", 0, hiddenWordArray.length);
+
 
 var hangmanDisplay = document.querySelector('.underscore-array');
+underscoreArray = underscoreArray.join(' ');
+console.log(underscoreArray);
 hangmanDisplay.innerHTML = underscoreArray;
+underscoreArray = underscoreArray.split(' ');
+console.log(underscoreArray);
 
 
-// At the END of entire function, push letterbutton?.innerhtml to lettersguessedarray
+var lettersGuessed = "Letters Guessed: ";   
+var lettersGuessedDisplay = document.querySelector('.letters-guessed-array');
+lettersGuessedDisplay.innerHTML = lettersGuessed;
 
 
 //make mistake counter
-var mistakeCounter = 0;
-
-console.log(wordSelector);
-console.log(hiddenWordArray);
-console.log(underscoreArray);
-console.log();
-    // TODO Cast word to all lower case OR all upper case
+var mistakeCounter = 7;
     
 // get parent element for the buttons (.letters)
 var letters = document.querySelector('.letters');
 //add event listener to parent element
 letters.addEventListener('click', function checkLetter() {
+    lettersGuessed += event.target.innerHTML;
+    lettersGuessedDisplay.innerHTML = lettersGuessed;
     for (var i = 0; i < hiddenWordArray.length; i++) {
         //checks to see if innerhtml of button is equal to letters in each index of hiddenwordarray
         if (event.target.innerHTML === hiddenWordArray[i]) {
         // populates underscorearray (the visible array) with the accurately guessed letter
         underscoreArray[i] = event.target.innerHTML;
+        console.log(underscoreArray);
+        underscoreArray = underscoreArray.join(' ');
         hangmanDisplay.innerHTML = underscoreArray;
-
+        underscoreArray = underscoreArray.split(' ');
         } else if (hiddenWordArray.includes(event.target.innerHTML) === false ) {
             i = hiddenWordArray.length; // CHECK TO MAKE SURE THIS ISN'T A PROBLEM
-            mistakeCounter += 1;
+            mistakeCounter -= 1;
+                if (mistakeCounter === 0) {
+                    console.log('yo ufuckin lost m8');
+                }
         }
     }
+    console.log(underscoreArray);
+
 })
-
-/*
-1. get parent element for the buttons (.letters)
-2. add event listener to parent element
-3. event handler will:
-    - check event.target.innerHTML for letter ('A', 'B', 'C', etc)
-
-
-*/
-
 
 
