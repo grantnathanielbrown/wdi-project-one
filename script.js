@@ -23,10 +23,6 @@ Else
 // user 1 prompt
 var wordSelector = prompt('Please enter your word.');
 
-// TODO create an <input> that takes in a single letter
-// TODO if the length of the string taken in is longer than 1,
-// TODO write in red text an error message. Otherwise, see if 
-// TODO letter exists. add letter to list of letters guessed.
 // TODO display letters guessed in a display section that is populated
 // TODO every time the javascript function to guess is called.
 // TODO if a match exists, fill in a letter and update accordingly.
@@ -36,39 +32,54 @@ var wordSelector = prompt('Please enter your word.');
 
 // this turns user 1 string into values of hidden array
 var hiddenWordArray = wordSelector.split("");
+
+// use .map with    
 // create array with underscores _ equal to length of word passed in by user
 var underscoreArray = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",];
 underscoreArray.fill("_", 0, hiddenWordArray.length);
 
-// onclick if letterbutton?.innerhtml === hiddenwordarray[i],
-// then underscorearray[i] === letterbutton?.innerhtml
+var hangmanDisplay = document.querySelector('.underscore-array');
+hangmanDisplay.innerHTML = underscoreArray;
+
+
 // At the END of entire function, push letterbutton?.innerhtml to lettersguessedarray
 
-//make blank array
 
-//make reveal and mistake counter
-var revealCounter = 0;
+//make mistake counter
 var mistakeCounter = 0;
 
-// createButtonClickHandler('.gameOptionA', 'a');
-// function createButtonClickHandler (gameOption, letter) {
+console.log(wordSelector);
+console.log(hiddenWordArray);
+console.log(underscoreArray);
+console.log();
     // TODO Cast word to all lower case OR all upper case
-    const letterButtonA = document.querySelector('.gameoptionA');
-    letterButtonA.addEventListener('click', function guessLetter() {
-        console.log(JSON.stringify(hiddenWordArray));
-        for (var i = 0; i < hiddenWordArray.length; i++) {
-            if (letterButtonA.innerHTML === hiddenWordArray[i]) {
-            underscoreArray[i] = letterButtonA.innerHTML;
-            
-            } else if (hiddenWordArray.includes(letterButtonA.innerHTML) === false ) {
-                i = hiddenWordArray.length; // CHECK TO MAKE SURE THIS ISN'T A PROBLEM
-                mistakeCounter += 1;
-            }
+    
+// get parent element for the buttons (.letters)
+var letters = document.querySelector('.letters');
+//add event listener to parent element
+letters.addEventListener('click', function checkLetter() {
+    for (var i = 0; i < hiddenWordArray.length; i++) {
+        //checks to see if innerhtml of button is equal to letters in each index of hiddenwordarray
+        if (event.target.innerHTML === hiddenWordArray[i]) {
+        // populates underscorearray (the visible array) with the accurately guessed letter
+        underscoreArray[i] = event.target.innerHTML;
+        hangmanDisplay.innerHTML = underscoreArray;
+
+        } else if (hiddenWordArray.includes(event.target.innerHTML) === false ) {
+            i = hiddenWordArray.length; // CHECK TO MAKE SURE THIS ISN'T A PROBLEM
+            mistakeCounter += 1;
         }
-    })
-// }
+    }
+})
+
+/*
+1. get parent element for the buttons (.letters)
+2. add event listener to parent element
+3. event handler will:
+    - check event.target.innerHTML for letter ('A', 'B', 'C', etc)
 
 
+*/
 
 
 

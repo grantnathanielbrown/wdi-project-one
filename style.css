@@ -16,8 +16,10 @@ body {
     letter-spacing: 0.1em;
 }
 header {
-    font-size: 3em;
     text-align: center;
+}
+header h1 {
+    font-size: 3em;
 }
 main {
     width: 50%;
@@ -32,8 +34,8 @@ footer {
 .alphabet-container {
 
 }
-.hidden-word {
-    text-decoration: dashed underline;
+.underscore-array {
+    
 }
 .gameoption {
 
