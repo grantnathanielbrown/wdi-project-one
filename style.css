@@ -10,6 +10,12 @@ body {
 header {
     text-align: center;
 }
+header h2 {
+    margin: 40px;
+}
+input {
+    font-size: 1em;
+}
 header h1 {
     font-size: 3em;
 }
@@ -24,6 +30,12 @@ header h1 {
 .alphabet-container {
     width: 40%;
     margin: 50px;
+}
+.alphabet-container p {
+    font-size: 10px;
+}
+.alphabet-container h2 {
+    color: red;
 }
 .underscore-array {
     text-align: center;
@@ -51,9 +63,12 @@ button {
     left: -9999px;
 }
 .letters-guessed-array {
-    margin: 40px;
+margin: 10px 10px 10px 0px;
+color: purple;
 }
-
+.loser-image {
+    margin: 0 auto;
+}
 footer {
     text-align: center;
 }

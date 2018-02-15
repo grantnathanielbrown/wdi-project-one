@@ -1,31 +1,20 @@
-/* TODO list
-
-1. add win / lose events
-2. clear value of input after submit is pressed
-3. restart function - probably needs to accept input from input field + button
-4. reveal buttons once again
-*/
-
-
-// user 1 prompt
-
+// puts event listener on input word button
 var wordSelectorButton = document.querySelector('.hangman-button')
+// this button 
 wordSelectorButton.addEventListener('click', function setupHangman() {
+    // removes the invisible class from buttons which had previously been selected, thus revealing them again
     var removeInvis = document.querySelectorAll('.letterbutton');
-    console.log(removeInvis);
     for (k = 0; k < removeInvis.length; k++) {
         removeInvis[k].classList.remove('invisible');
     }
-
+    // gets the user1 input from the field and places it into a variable
     var wordSelectorBefore = document.querySelector('#hangman-word');
-    // var wordSelectorButton = document.querySelector('.hangman-button')
-    // var wordSelectorBefore = prompt('Please enter your word.');
-    // makes user prompt uppercase
+    // parses the user1 input to uppercase, so that it can be matched against the letter buttons
     var wordSelector = wordSelectorBefore.value.toUpperCase();
+    // hides the user1 input after they submit the word, so that user2 cannot cheat and view it
     wordSelectorBefore.value = '';
     
-   
-    console.log(wordSelectorBefore);
+
 
 
     // this turns user 1 string into values of hidden array
@@ -33,10 +22,8 @@ wordSelectorButton.addEventListener('click', function setupHangman() {
     console.log(hiddenWordArray);
     // this creates an array(underscoreArray) which will later be filled with underscores.
     var underscoreArray = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",];
-    console.log(underscoreArray);
     // this fills the underscoreArray with underscores based on the length of the word chosen by user 1
     underscoreArray.fill("_", 0, hiddenWordArray.length)
-    console.log(underscoreArray);
 
 
     // display variable is created to take innerHTML from the underscoreArray
@@ -55,15 +42,8 @@ wordSelectorButton.addEventListener('click', function setupHangman() {
     // set innerhtml of display variable to the value of the lettersGuessed string, which will later be added onto
     lettersGuessedDisplay.innerHTML = lettersGuessed;
 
-    // var revealCounter = 0;
-    // make mistake counter based on the length of the word; a longer word means more lives are granted to user 2
-    if (hiddenWordArray.length <= 5) {
-        var mistakeCounter = 8;
-    } else if ( hiddenWordArray.length > 5 && hiddenWordArray.length <= 9) {
-        var mistakeCounter = 9;
-    } else if (hiddenWordArray.length > 9) {
-        var mistakeCounter = 10;
-    }
+    // make mistake counter 
+    mistakeCounter = 8;
     // creates display variable for # of lives left
     var livesLeftDisplay = document.querySelector('.lives-left');
     // set innerhtml of display variable to value of the counter
@@ -92,17 +72,20 @@ wordSelectorButton.addEventListener('click', function setupHangman() {
                 underscoreArray = underscoreArray.join(' ');
                 hangmanDisplay.innerHTML = underscoreArray;
                 underscoreArray = underscoreArray.split(' ');
-            // if the user guesses incorrectly, decrements the livesLeft counter.
-            } else if (hiddenWordArray.includes(event.target.innerHTML) === false ) {
-                i = hiddenWordArray.length;
-                mistakeCounter -= 1;
-                livesLeftDisplay.innerHTML = mistakeCounter;
-                if (mistakeCounter === 0) {
-                    
-                    }
             }
         }
-        console.log(underscoreArray);
+        // if the user guesses incorrectly, decrements the livesLeft counter by checking the value of the hiddenwordarray against the value of the letter button.
+        if (hiddenWordArray.includes(event.target.innerHTML) === false ) {
+            // decrements the life counter
+            mistakeCounter -= 1;
+            // updates the life counter display
+            livesLeftDisplay.innerHTML = mistakeCounter;
+            if (mistakeCounter === 0) {
+                    document.querySelector('.loser-image').src = "https://i.imgur.com/xxvnWoG.jpg"
+                    }
+            }
+        
+
     }
     })
 
