@@ -10,6 +10,15 @@ Every time you click on a letter in the alphabet below, the word is scanned to s
 
 If it does, each instance of the letter is revealed. If not, the user loses a life point.
 
+FEATURES
+
+- Basic, functional hangman game: One user sets a hidden word, the other user guesses a word gradually by clicking letters.
+- Letters are revealed upon correct guesses.
+- The user is shown a list of letters he / she has already guessed.
+- When a player loses all of his / her lives, a loss image is shown.
+- The input word of the first user is hidden after he / she submits the word.
+- The game can be reset by simply inputting a new word, creating a new blank board (with the exception of the life counter, which is not fully functional yet.)
+
 TECHNOLOGIES USED
 
 The site was made entirely using VSCode. It has an HTML, CSS, and Javascript page. These provide the functionality of the site.
@@ -71,6 +80,5 @@ Else
 
 UNSOLVED PROBLEMS / TO-DO LIST
 
-1. Add life total based on # of letters in the word
-2. Image pops up upon loss and win at bottom
-3. Restart function - probably needs to accept input from input field + button
+1. Fix life total bug
+2. Add more sophisticated win / loss outcomes
